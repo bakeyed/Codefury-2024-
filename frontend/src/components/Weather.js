@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Weather.css";
 
 function Weather() {
   const [location, setLocation] = useState("");
@@ -65,33 +66,47 @@ function Weather() {
   };
 
   return (
-    <div>
-      <h2>Weather and News Information</h2>
-      <input
-        type="text"
-        placeholder="Enter location"
-        value={location}
-        onChange={(e) => setLocation(e.target.value)}
-      />
-      <button onClick={fetchCoordinates}>Get Weather and News</button>
+    <div className="weather-container">
+      <h2 className="weather-title">Weather and News Information</h2>
+      <div className="weather-form">
+        <input
+          type="text"
+          className="weather-input"
+          placeholder="Enter location"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+        />
+        <button className="weather-button" onClick={fetchCoordinates}>
+          Get Weather and News
+        </button>
+      </div>
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {error && <p className="error-message">{error}</p>}
       {weatherData && (
-        <div>
-          <h3>Weather Details</h3>
-          <p>Temperature: {weatherData.main.temp} °C</p>
-          <p>Weather: {weatherData.weather[0].description}</p>
-          <p>Location: {weatherData.name}</p>
+        <div className="response-container">
+          <h3 className="response-title">Weather Details</h3>
+          <p className="response-text">
+            Temperature: {weatherData.main.temp} °C
+          </p>
+          <p className="response-text">
+            Weather: {weatherData.weather[0].description}
+          </p>
+          <p className="response-text">Location: {weatherData.name}</p>
         </div>
       )}
       {newsData && (
-        <div>
-          <h3>Recent News</h3>
+        <div className="response-container">
+          <h3 className="response-title">Recent News</h3>
           {newsData.map((article, index) => (
-            <div key={index}>
-              <h4>{article.title}</h4>
-              <p>{article.description}</p>
-              <a href={article.url} target="_blank" rel="noopener noreferrer">
+            <div key={index} className="news-article">
+              <h4 className="response-title">{article.title}</h4>
+              <p className="response-text">{article.description}</p>
+              <a
+                href={article.url}
+                className="news-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Read more
               </a>
             </div>

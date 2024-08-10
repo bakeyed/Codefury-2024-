@@ -23,7 +23,7 @@ const ArticleList = () => {
         {articles.map((article, index) => (
           <li key={index}>
             <a
-              href={`http://localhost:5000/articles/${article}`}
+              href={`http://localhost:8800/articles/${article}`}
               target="_blank"
               rel="noopener noreferrer"
             >

@@ -1,38 +1,278 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: black;
   display: flex;
   flex-direction: column;
+}
+.brand-title {
+  font-family: monospace;
+  font-size: larger;
+  padding-left: 260px;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  /* background-image: linear-gradient(aqua,lightblue); */
+  background-color: black;
+
+  scroll-behavior: smooth;
+}
+.content-section {
+  padding: 50px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  margin: 20px;
+  border-radius: 10px;
+}
+#tab1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 10px;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  border: none;
+  animation: forwards;
+  padding-bottom: 50px;
+  margin-bottom: 40px;
+}
+#tab2 {
+  border: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 10px;
+  align-items: center;
+  padding-bottom: 50px;
+}
+
+.navbar {
+  width: 100%;
+  height: 40px;
+  top: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: black;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  color: #fff;
+  padding-bottom: 40px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  /* position: absolute; */
+}
+
+.hamburger-menu {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.menu-icon {
+  cursor: pointer;
+  display: block;
+  width: 30px;
+  height: 25px;
+  position: relative;
+}
+
+.nav-icon,
+.nav-icon::before,
+.nav-icon::after {
+  content: "";
+  background-color: #fff;
+  height: 3px;
+  width: 100%;
+  border-radius: 2px;
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+.nav-icon {
+  top: 50%;
+
+  transform: translateY(-50%);
+}
+
+.nav-icon::before {
+  top: -8px;
+}
+
+.nav-icon::after {
+  top: 8px;
+}
+
+#menu-toggle:checked + .menu-icon .nav-icon {
+  transform: rotate(45deg);
+}
+
+#menu-toggle:checked + .menu-icon .nav-icon::before {
+  transform: rotate(-90deg) translate(-8px, 0);
+}
+
+#menu-toggle:checked + .menu-icon .nav-icon::after {
+  transform: rotate(-90deg) translate(-8px, 0);
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.menu {
+  display: none;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  background-color: black;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  width: 200px;
+  z-index: 1;
+}
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 10px;
+}
+
+.menu ul li {
+  margin: 5px 0;
+}
+
+.menu ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+.menu ul li a:hover {
+  background-color: #555;
+}
+
+#menu-toggle:checked ~ .menu {
+  display: block;
+}
+
+.brand-title {
+  text-align: center;
+  font-size: 1.5em;
+  flex-grow: 1;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px 0 0 5px;
+  border: 1px solid #ccc;
+}
+
+.search-bar button {
+  padding: 13px 10px;
+  padding-right: 40px;
+  border: none;
+  background-color: #007bff;
   color: white;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.search-bar button:hover {
+  background-color: #0056b3;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#weather-result {
+  margin: 20px;
+  font-size: 1.2em;
+  color: #333;
+}
+.flood,
+.hurricane,
+.fire,
+.earthquake {
+  font-size: 0%;
+  width: 800px;
+}
+.flood:hover,
+.hurricane:hover,
+.fire:hover,
+.earthquake:hover {
+  font-size: 45px;
+  opacity: 0.6;
+  text-align: center;
+}
+.flood:hover,
+.fire:hover {
+  color: whitesmoke;
+}
+
+.flood {
+  height: 300px;
+  width: 500px;
+  background-image: url("https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA5L3Jhd3BpeGVsb2ZmaWNlN19waG90b19tYXNzaXZlX2Zsb29kaW5nX3ZpbGxhZ2VfYW5kX3Blb3BsZV9zdXJ2aV84N2NjZDU4NS0wNzY2LTRmZGQtOGNjOS03MTRlNThmMWFiYWZfMS5qcGc.jpg");
+}
+.earthquake {
+  height: 300px;
+  width: 500px;
+  background-size: cover;
+  background-image: url("https://cdn.mos.cms.futurecdn.net/9ASpe9vt33TEUzzErDzRb4-1200-80.jpg");
+}
+.fire {
+  height: 300px;
+  width: 500px;
+  background-size: cover;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/0/05/Burnout_ops_on_Mangum_Fire_McCall_Smokejumpers.jpg");
+}
+.hurricane {
+  height: 300px;
+  width: 500px;
+  background-size: cover;
+  background-image: url("https://insideclimatenews.org/wp-content/uploads/2023/05/hurricane-ian-sean-rayfored-getty-scaled.jpg");
+}
+.image_text {
+  font-family: monospace;
+  position: absolute;
+  /* top: 45%;
+  left: 50%;  */
+  padding: 10px;
+  transform: translate((-50%, -50%));
+  align-items: center;
+}
+#tab3 {
+  width: 100%;
+  height: 800px;
+  display: flex;
+  background-image: url("https://cdn.britannica.com/41/230741-050-DE5AED6F/Open-plain-with-cracked-mud-and-clear-sky.jpg");
+  padding-right: 0%;
+  margin-left: 0px;
+}
+.largeimg {
+  max-width: 200vh;
+  margin: 0px;
+}
+/* .aiimg{
+  width: 1000px;
+} */
+.limgtext {
+  font-size: 30px;
+}
+#tab1,
+#tab2,
+#tab3 {
+  font-family: monospace;
+
+  margin: 0px;
+  background-color: black;
+  color: black;
 }
