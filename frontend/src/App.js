@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import GeminiChat from "./components/GeminiChat";
 import ArticleList from "./components/ArticleList";
+import Weather from "./components/Weather"; // Import the Weather component
 
 function App() {
   return (
@@ -18,6 +19,13 @@ function App() {
             <li>
               <Link to="/articles">Articles</Link>
             </li>
+            <li>
+              <Link to="/weather">Weather</Link>{" "}
+              {/* Link to the Weather component */}
+            </li>
+            <li>
+              <Link to="/map">Map</Link> {/* Link to the Map component */}
+            </li>
           </ul>
         </nav>
 
@@ -25,6 +33,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/chat" element={<GeminiChat />} />
           <Route path="/articles" element={<ArticleList />} />
+          <Route path="/weather" element={<Weather />} />{" "}
         </Routes>
       </div>
     </Router>
