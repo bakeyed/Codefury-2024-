@@ -5,20 +5,41 @@ const GeminiChat = () => {
   const [question, setQuestion] = useState("");
   const [response, setResponse] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setError("");
     try {
-      const result = await axios.post("http://localhost:5000/chat", {
-        question,
-      });
+      const result = await axios.post(
+        "http://localhost:8000/chat",
+        { question },
+        {
+          timeout: 30000, // 30 seconds timeout
+        }
+      );
       setResponse(result.data.response);
     } catch (error) {
       console.error("Error getting Gemini response:", error);
-      setResponse("An error occurred while fetching the response.");
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        setError(
+          `Server error: ${error.response.status} - ${
+            error.response.data.error || "Unknown error"
+          }`
+        );
+      } else if (error.request) {
+        // The request was made but no response was received
+        setError("No response received from the server. Please try again.");
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        setError(`Error: ${error.message}`);
+      }
+    } finally {
+      setIsLoading(false);
     }
-    setIsLoading(false);
   };
 
   return (
@@ -36,6 +57,7 @@ const GeminiChat = () => {
           {isLoading ? "Loading..." : "Ask"}
         </button>
       </form>
+      {error && <p style={{ color: "red" }}>{error}</p>}
       {response && (
         <div>
           <h3>Response:</h3>
