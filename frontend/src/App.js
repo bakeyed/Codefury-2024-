@@ -4,11 +4,10 @@ import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import GeminiChat from "./components/GeminiChat";
-import ArticleList from "./components/ArticleList";
 import Weather from "./components/Weather";
 
 function App() {
-  const { user } = useAuth0();
+  const { user, loginWithRedirect } = useAuth0();
   console.log("Current User", user);
   const [activeTab, setActiveTab] = useState("tab1");
 
@@ -30,18 +29,22 @@ function App() {
                 </li>
                 <li>
                   <Link to="/weather" onClick={() => setActiveTab("tab2")}>
-                    PRECAUTIONS
+                    NEWS
                   </Link>
                 </li>
                 <li>
                   <Link to="/chat" onClick={() => setActiveTab("tab3")}>
-                    AI CHATBOX
+                    AI CHATBOT
                   </Link>
                 </li>
                 <li>
-                  <Link to="/articles" onClick={() => setActiveTab("tab4")}>
-                    CONTRIBUTIONS
-                  </Link>
+                  <a
+                    href="https://sreerathnaieji.github.io/Natural-Disaster-contri-and-artic/"
+                    rel="noopener noreferrer"
+                    onClick={() => setActiveTab("tab4")}
+                  >
+                    ARTICLES
+                  </a>
                 </li>
               </ul>
             </div>
@@ -56,7 +59,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/chat" element={<GeminiChat />} />
-          <Route path="/articles" element={<ArticleList />} />
           <Route path="/weather" element={<Weather />} />
         </Routes>
 
