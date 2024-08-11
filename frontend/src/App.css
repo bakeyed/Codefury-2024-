@@ -276,3 +276,9 @@ body {
   background-color: black;
   color: black;
 }
+
+.contact {
+  padding-right: 40px;
+  font-family: monospace;
+  font-size: 20px;
+}

@@ -14,7 +14,7 @@ const GeminiChat = () => {
     setError("");
     try {
       const result = await axios.post(
-        "http://localhost:8000/chat",
+        "http://localhost:8800/chat",
         { question },
         {
           timeout: 30000, // 30 seconds timeout
