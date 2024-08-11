@@ -20,18 +20,19 @@ SafeHarbor is for individuals, families, emergency responders, community organiz
 
 ## APIs Integrated
 
- - [Gemini API:](https://cloud.google.com/cloud-console)
+ - [Gemini API](https://cloud.google.com/cloud-console)
     Used to create a chatbot on our website that answers questions about
     natural disasters. 
- - [Weather API:](https://openweathermap.org/api)
+ - [Weather API](https://openweathermap.org/api)
     Provides weather information for the city entered by the user.
- - [Location Decoder API:](https://openweathermap.org/api)
+ - [Location Decoder API](https://openweathermap.org/api)
     Converts location data into readable city names for weather queries.
- - [News API:](https://newsapi.org/) 
+ - [News API](https://newsapi.org/) 
     Retrieves recent news related to natural disasters in the specified city.
 
 ## Installation and Setup
 
+The frontend of the SafeHarbor application can be accessed via this [link](https://codefury-2024.vercel.app/). Please note that to ensure full functionality of the APIs, it is necessary to run the backend server concurrently.
 To get started with the SafeHarbor application, follow these steps:
 
 1. Clone the Repository
