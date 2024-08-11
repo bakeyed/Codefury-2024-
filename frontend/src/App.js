@@ -54,7 +54,6 @@ function App() {
               <h1>^ SafeHarbor ^</h1>
             </div>
           </div>
-          <div className="contact">011-26701728-1078</div>
         </nav>
 
         <Routes>
