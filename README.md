@@ -56,9 +56,9 @@ To get started with the SafeHarbor application, follow these steps:
 8. Run the Frontend Server
     ```npm start```
 
-## Contributors
+## CONTRIBUTORS
 
 **Team PIXEL**
-1. VASUNDHARA CHAKRAPANI
-2. SREE RATHNA IEJI
-3. VIBHA V MURADI
+1. Vasundhara Chakrapani
+2. Sree Rathna Ieji
+3. Vibha V Muradi
