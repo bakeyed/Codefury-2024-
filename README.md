@@ -62,4 +62,4 @@ To get started with the SafeHarbor application, follow these steps:
 **Team PIXEL**
 1. Vasundhara Chakrapani
 2. Sree Rathna Ieji
-3. Vibha V Muradi
+3. [Me] 
